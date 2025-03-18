@@ -1,12 +1,15 @@
+import { Email } from '../value-objects/email.vo';
+import { CPF } from '../value-objects/cpf.vo';
 export class Student {
   constructor(
-    public id: string,
+    public readonly id: string,
     public name: string,
-    public email: string,
-    public cpf: string,
+    public email: Email,
+    public cpf: CPF,
     public createdAt: Date = new Date(),
   ) {}
-  static create(name: string, email: string, cpf: string): Student {
-    return new Student(crypto.randomUUID(), name, email, cpf);
+
+  updateName(name: string) {
+    this.name = name;
   }
 }
